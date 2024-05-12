@@ -6,12 +6,13 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.skydream.blommingprojectprototype.global.audit.BaseTime;
 
 @Entity
 @Table(name = "artist")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ArtistJpaEntity {
+public class ArtistJpaEntity extends BaseTime {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
