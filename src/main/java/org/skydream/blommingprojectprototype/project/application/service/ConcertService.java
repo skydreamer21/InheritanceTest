@@ -15,6 +15,6 @@ public class ConcertService implements ConcertUseCase {
 
     @Override
     public ConcertJpaEntity addConcert(ConcertWebDto concertWebDto) {
-        return concertPort.save(concertPort);
+        return concertPort.save(concertWebDto);
     }
 }
