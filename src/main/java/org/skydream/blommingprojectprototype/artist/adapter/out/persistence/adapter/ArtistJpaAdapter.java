@@ -3,6 +3,7 @@ package org.skydream.blommingprojectprototype.artist.adapter.out.persistence.ada
 import lombok.RequiredArgsConstructor;
 import org.skydream.blommingprojectprototype.artist.adapter.in.web.dto.ArtistWebDto;
 import org.skydream.blommingprojectprototype.artist.adapter.out.persistence.entity.ArtistJpaEntity;
+import org.skydream.blommingprojectprototype.artist.adapter.out.persistence.mapper.ArtistMapper;
 import org.skydream.blommingprojectprototype.artist.adapter.out.persistence.repository.ArtistSpringDataJpaRepository;
 import org.skydream.blommingprojectprototype.artist.application.port.out.ArtistPort;
 import org.springframework.stereotype.Repository;
@@ -11,10 +12,11 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class ArtistJpaAdapter implements ArtistPort {
 
+    private final ArtistMapper artistMapper;
     private final ArtistSpringDataJpaRepository artistJpaRepository;
 
     @Override
     public ArtistJpaEntity save(ArtistWebDto artistWebDto) {
-        return artistJpaRepository.save();
+        return artistJpaRepository.save(artistMapper.webDtoToEntity(artistWebDto));
     }
 }
