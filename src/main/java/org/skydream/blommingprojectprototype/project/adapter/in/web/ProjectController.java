@@ -3,7 +3,7 @@ package org.skydream.blommingprojectprototype.project.adapter.in.web;
 import lombok.RequiredArgsConstructor;
 import org.skydream.blommingprojectprototype.project.adapter.in.web.dto.ProjectWebDto;
 import org.skydream.blommingprojectprototype.project.adapter.out.persistence.entity.ProjectJpaEntity;
-import org.skydream.blommingprojectprototype.project.application.port.ProjectUseCase;
+import org.skydream.blommingprojectprototype.project.application.port.in.ProjectUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

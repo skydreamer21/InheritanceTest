@@ -3,7 +3,7 @@ package org.skydream.blommingprojectprototype.project.adapter.in.web;
 import lombok.RequiredArgsConstructor;
 import org.skydream.blommingprojectprototype.project.adapter.in.web.dto.ConcertWebDto;
 import org.skydream.blommingprojectprototype.project.adapter.out.persistence.entity.ConcertJpaEntity;
-import org.skydream.blommingprojectprototype.project.application.port.ConcertUseCase;
+import org.skydream.blommingprojectprototype.project.application.port.in.ConcertUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
