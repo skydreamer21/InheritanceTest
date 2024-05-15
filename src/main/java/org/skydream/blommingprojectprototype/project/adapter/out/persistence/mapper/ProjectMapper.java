@@ -26,7 +26,7 @@ public class ProjectMapper {
                 .targetAmount(jpaEntity.getTargetAmount())
                 .description(jpaEntity.getDescription())
                 .posterImgUrl(jpaEntity.getPosterImgUrl())
-                .auditTime(new AuditTime(jpaEntity.getCreatedAt(), jpaEntity.getUpdatedAt()))
+                .auditTime(new AuditTime(jpaEntity.getCreatedAt(), jpaEntity.getModifiedAt()))
                 .build();
     }
 }

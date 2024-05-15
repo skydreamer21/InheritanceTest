@@ -23,7 +23,7 @@ public class ArtistMapper {
                 .description(jpaEntity.getDescription())
                 .profileImgUrl(jpaEntity.getProfileImgUrl())
                 .youtubeUrl(jpaEntity.getYoutubeUrl())
-                .auditTime(new AuditTime(jpaEntity.getCreatedAt(), jpaEntity.getUpdatedAt()))
+                .auditTime(new AuditTime(jpaEntity.getCreatedAt(), jpaEntity.getModifiedAt()))
                 .build();
     }
 }
