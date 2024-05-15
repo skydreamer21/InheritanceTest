@@ -19,7 +19,7 @@ public class AlbumActivityController {
 
     @PostMapping
     public ResponseEntity<AlbumActivityWebDto> addAlbumActivity(@RequestBody AlbumActivityWebDto albumActivityWebDto) {
-        AlbumActivityJpaEntity result = albumActivityUseCase.addAlbumActivity(albumActivityWebDto);
+        AlbumActivityJpaEntity result = albumActivityUseCase.addAlbumActivity(albumActivityWebDto.toDomain(), albumActivityWebDto.artistId());
         return ResponseEntity.ok(AlbumActivityWebDto.from(result));
 
     }

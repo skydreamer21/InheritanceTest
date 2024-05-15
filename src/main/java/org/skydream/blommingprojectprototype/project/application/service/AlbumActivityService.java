@@ -5,6 +5,7 @@ import org.skydream.blommingprojectprototype.project.adapter.in.web.dto.AlbumAct
 import org.skydream.blommingprojectprototype.project.adapter.out.persistence.entity.AlbumActivityJpaEntity;
 import org.skydream.blommingprojectprototype.project.application.port.in.AlbumActivityUseCase;
 import org.skydream.blommingprojectprototype.project.application.port.out.AlbumActivityPort;
+import org.skydream.blommingprojectprototype.project.domain.AlbumActivity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +14,7 @@ public class AlbumActivityService implements AlbumActivityUseCase {
 
     private final AlbumActivityPort albumActivityPort;
     @Override
-    public AlbumActivityJpaEntity addAlbumActivity(AlbumActivityWebDto albumActivityWebDto) {
-        return albumActivityPort.save(albumActivityWebDto);
+    public AlbumActivityJpaEntity addAlbumActivity(AlbumActivity albumActivity, Long artistId) {
+        return albumActivityPort.save(albumActivity, artistId);
     }
 }
