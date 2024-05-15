@@ -1,7 +1,6 @@
 package org.skydream.blommingprojectprototype.project.adapter.in.web;
 
 import lombok.RequiredArgsConstructor;
-import org.skydream.blommingprojectprototype.project.adapter.in.web.dto.ProjectWebDto;
 import org.skydream.blommingprojectprototype.project.application.port.in.ProjectUseCase;
 import org.skydream.blommingprojectprototype.project.domain.Project;
 import org.springframework.http.ResponseEntity;
