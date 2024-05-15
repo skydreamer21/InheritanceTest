@@ -24,7 +24,7 @@ public record ConcertWebDto(ProjectWebDto projectWebDto, String concertPlace, Lo
 
     // without artist -> 여러 도메인 의존성 줄이기
     public Concert toDomain() {
-        Concert.builder()
+        return Concert.builder()
                 .name(projectWebDto().name())
                 .fundingAmount(projectWebDto().fundingAmount())
                 .targetAmount(projectWebDto().targetAmount())
