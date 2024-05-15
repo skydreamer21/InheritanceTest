@@ -2,7 +2,10 @@ package org.skydream.blommingprojectprototype.project.adapter.in.web.dto;
 
 import lombok.Builder;
 import lombok.Getter;
+import org.skydream.blommingprojectprototype.artist.domain.Artist;
 import org.skydream.blommingprojectprototype.project.adapter.out.persistence.entity.ConcertJpaEntity;
+import org.skydream.blommingprojectprototype.project.domain.Concert;
+import org.skydream.blommingprojectprototype.project.domain.Project;
 
 import java.time.LocalDate;
 
@@ -19,28 +22,19 @@ public record ConcertWebDto(ProjectWebDto projectWebDto, String concertPlace, Lo
                 .build();
     }
 
-    public Long getId() {
-        return projectWebDto().id();
-    }
+    // without artist -> 여러 도메인 의존성 줄이기
+    public Concert toDomain() {
+        Concert.builder()
+                .name(projectWebDto().name())
+                .fundingAmount(projectWebDto().fundingAmount())
+                .targetAmount(projectWebDto().targetAmount())
+                .description(projectWebDto.description())
+                .posterImgUrl(projectWebDto.posterImgUrl())
+                .concertPlace(concertPlace)
+                .startDate(startDate)
+                .endDate(endDate)
+                .build();
 
-    public String getName() {
-        return projectWebDto().name();
-    }
-
-    public Long getFundingAmount() {
-        return projectWebDto().fundingAmount();
-    }
-
-    public Long getTargetAmount() {
-        return projectWebDto().targetAmount();
-    }
-
-    public String getDescription() {
-        return projectWebDto().description();
-    }
-
-    public String getPosterImgUrl() {
-        return projectWebDto().posterImgUrl();
     }
 
 }

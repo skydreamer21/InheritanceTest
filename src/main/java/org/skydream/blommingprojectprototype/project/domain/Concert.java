@@ -1,11 +1,13 @@
 package org.skydream.blommingprojectprototype.project.domain;
 
 import lombok.Builder;
+import lombok.Getter;
 import org.skydream.blommingprojectprototype.artist.domain.Artist;
 import org.skydream.blommingprojectprototype.global.domain.AuditTime;
 
 import java.time.LocalDate;
 
+@Getter
 public class Concert extends Project {
     private String concertPlace;
     private LocalDate startDate;

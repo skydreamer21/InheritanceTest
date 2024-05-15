@@ -2,6 +2,7 @@ package org.skydream.blommingprojectprototype.project.adapter.in.web.dto;
 
 import lombok.Builder;
 import org.skydream.blommingprojectprototype.project.adapter.out.persistence.entity.ProjectJpaEntity;
+import org.skydream.blommingprojectprototype.project.domain.Project;
 
 @Builder
 public record ProjectWebDto(Long id,
@@ -19,6 +20,16 @@ public record ProjectWebDto(Long id,
                 .targetAmount(projectJpaEntity.getTargetAmount())
                 .description(projectJpaEntity.getDescription())
                 .posterImgUrl(projectJpaEntity.getPosterImgUrl())
+                .build();
+    }
+
+    public Project toDomain() {
+        return Project.builder()
+                .name(name)
+                .fundingAmount(fundingAmount)
+                .targetAmount(targetAmount)
+                .description(description)
+                .posterImgUrl(posterImgUrl)
                 .build();
     }
 }

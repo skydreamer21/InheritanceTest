@@ -19,7 +19,7 @@ public class ConcertController {
 
     @PostMapping
     public ResponseEntity<ConcertWebDto> addConcert(@RequestBody ConcertWebDto concertWebDto) {
-        ConcertJpaEntity result = concertUseCase.addConcert(concertWebDto);
+        ConcertJpaEntity result = concertUseCase.addConcert(concertWebDto.toDomain(), concertWebDto.artistId());
         return ResponseEntity.ok(ConcertWebDto.from(result));
 
     }
