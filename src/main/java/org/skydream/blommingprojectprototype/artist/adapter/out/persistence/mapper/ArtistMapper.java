@@ -1,17 +1,17 @@
 package org.skydream.blommingprojectprototype.artist.adapter.out.persistence.mapper;
 
-import org.skydream.blommingprojectprototype.artist.adapter.in.web.dto.ArtistWebDto;
 import org.skydream.blommingprojectprototype.artist.adapter.out.persistence.entity.ArtistJpaEntity;
+import org.skydream.blommingprojectprototype.artist.domain.Artist;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ArtistMapper {
-    public ArtistJpaEntity webDtoToEntity(ArtistWebDto artistWebDto) {
+    public ArtistJpaEntity domainToEntity(Artist artist) {
         return ArtistJpaEntity.builder()
-                .name(artistWebDto.name())
-                .description(artistWebDto.description())
-                .profileImgUrl(artistWebDto.profileImgUrl())
-                .youtubeUrl(artistWebDto.youtubeUrl())
+                .name(artist.getName())
+                .description(artist.getDescription())
+                .profileImgUrl(artist.getProfileImgUrl())
+                .youtubeUrl(artist.getYoutubeUrl())
                 .build();
     }
 }

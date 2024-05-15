@@ -19,7 +19,7 @@ public class ArtistController {
 
     @PostMapping
     public ResponseEntity<ArtistWebDto> addArtist(@RequestBody ArtistWebDto artistWebDto) {
-        ArtistJpaEntity result = artistUseCase.addArtist(artistWebDto);
+        ArtistJpaEntity result = artistUseCase.addArtist(artistWebDto.toDomain());
         return ResponseEntity.ok(ArtistWebDto.from(result));
     }
 }
