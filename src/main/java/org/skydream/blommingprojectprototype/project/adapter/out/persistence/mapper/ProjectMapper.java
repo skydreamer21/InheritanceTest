@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class ProjectMapper {
 
     public ProjectJpaEntity domainToJpaEntity(Project project) {
-        return ProjectJpaEntity.builder()
+        return ProjectJpaEntity.getBuilder()
                 .name(project.getName())
                 .fundingAmount(project.getFundingAmount())
                 .targetAmount(project.getTargetAmount())
@@ -19,7 +19,7 @@ public class ProjectMapper {
     }
 
     public Project jpaEntityToDomain(ProjectJpaEntity jpaEntity) {
-        return Project.builder()
+        return Project.getBuilder()
                 .id(jpaEntity.getId())
                 .name(jpaEntity.getName())
                 .fundingAmount(jpaEntity.getFundingAmount())

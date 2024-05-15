@@ -23,7 +23,7 @@ public record ProjectWebDto(Long id,
     }
 
     public Project toDomain() {
-        return Project.builder()
+        return Project.getBuilder()
                 .name(name)
                 .fundingAmount(fundingAmount)
                 .targetAmount(targetAmount)
