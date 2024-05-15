@@ -7,15 +7,6 @@ import org.skydream.blommingprojectprototype.project.domain.AlbumActivity;
 @Builder
 public record AlbumActivityWebDto(ProjectWebDto projectWebDto, String albumName, Integer productionPeriod, Long artistId) {
 
-    public static AlbumActivityWebDto from(AlbumActivityJpaEntity jpaEntity) {
-        return AlbumActivityWebDto.builder()
-                .projectWebDto(ProjectWebDto.from(jpaEntity))
-                .albumName(jpaEntity.getAlbumName())
-                .productionPeriod(jpaEntity.getProductionPeriod())
-                .artistId(jpaEntity.getArtist().getId())
-                .build();
-    }
-
     public AlbumActivity toDomain() {
         return AlbumActivity.builder()
                 .name(projectWebDto().name())
