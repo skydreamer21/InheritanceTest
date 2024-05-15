@@ -17,8 +17,10 @@ public class ArtistJpaAdapter implements ArtistPort {
     private final ArtistSpringDataJpaRepository artistJpaRepository;
 
     @Override
-    public ArtistJpaEntity save(Artist artist) {
-        return artistJpaRepository.save(artistMapper.domainToEntity(artist));
+    public Artist save(Artist artist) {
+        return artistMapper.jpaEntityToDomain(
+                artistJpaRepository.save(artistMapper.domainToEntity(artist))
+        );
     }
 
     public ArtistJpaEntity findById(Long artistId) {
