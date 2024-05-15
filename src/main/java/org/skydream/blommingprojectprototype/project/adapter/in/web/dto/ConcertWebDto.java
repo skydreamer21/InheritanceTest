@@ -12,16 +12,6 @@ import java.time.LocalDate;
 @Builder
 public record ConcertWebDto(ProjectWebDto projectWebDto, String concertPlace, LocalDate startDate, LocalDate endDate, Long artistId) {
 
-    public static ConcertWebDto from(ConcertJpaEntity jpaEntity) {
-        return ConcertWebDto.builder()
-                .projectWebDto(ProjectWebDto.from(jpaEntity))
-                .concertPlace(jpaEntity.getConcertPlace())
-                .startDate(jpaEntity.getStartDate())
-                .endDate(jpaEntity.getEndDate())
-                .artistId(jpaEntity.getArtist().getId())
-                .build();
-    }
-
     // without artist -> 여러 도메인 의존성 줄이기
     public Concert toDomain() {
         return Concert.builder()

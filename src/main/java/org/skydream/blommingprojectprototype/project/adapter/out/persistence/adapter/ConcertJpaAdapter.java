@@ -3,7 +3,6 @@ package org.skydream.blommingprojectprototype.project.adapter.out.persistence.ad
 import lombok.RequiredArgsConstructor;
 import org.skydream.blommingprojectprototype.artist.adapter.out.persistence.adapter.ArtistJpaAdapter;
 import org.skydream.blommingprojectprototype.artist.adapter.out.persistence.entity.ArtistJpaEntity;
-import org.skydream.blommingprojectprototype.project.adapter.out.persistence.entity.ConcertJpaEntity;
 import org.skydream.blommingprojectprototype.project.adapter.out.persistence.mapper.ConcertMapper;
 import org.skydream.blommingprojectprototype.project.adapter.out.persistence.repository.ConcertSpringDataJpaRepository;
 import org.skydream.blommingprojectprototype.project.application.port.out.ConcertPort;
@@ -19,8 +18,10 @@ public class ConcertJpaAdapter implements ConcertPort {
     private final ArtistJpaAdapter artistJpaAdapter;
 
     @Override
-    public ConcertJpaEntity save(Concert concert, Long artistId) {
+    public Concert save(Concert concert, Long artistId) {
         ArtistJpaEntity artistJpaEntity = artistJpaAdapter.findById(artistId);
-        return concertJpaRepository.save(concertMapper.domainToJpaEntity(concert, artistJpaEntity));
+        return concertMapper.jpaEntityToDomain(
+                concertJpaRepository.save(concertMapper.domainToJpaEntity(concert, artistJpaEntity))
+        );
     }
 }

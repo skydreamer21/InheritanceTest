@@ -2,8 +2,8 @@ package org.skydream.blommingprojectprototype.project.adapter.in.web;
 
 import lombok.RequiredArgsConstructor;
 import org.skydream.blommingprojectprototype.project.adapter.in.web.dto.ConcertWebDto;
-import org.skydream.blommingprojectprototype.project.adapter.out.persistence.entity.ConcertJpaEntity;
 import org.skydream.blommingprojectprototype.project.application.port.in.ConcertUseCase;
+import org.skydream.blommingprojectprototype.project.domain.Concert;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,9 +18,9 @@ public class ConcertController {
     private final ConcertUseCase concertUseCase;
 
     @PostMapping
-    public ResponseEntity<ConcertWebDto> addConcert(@RequestBody ConcertWebDto concertWebDto) {
-        ConcertJpaEntity result = concertUseCase.addConcert(concertWebDto.toDomain(), concertWebDto.artistId());
-        return ResponseEntity.ok(ConcertWebDto.from(result));
+    public ResponseEntity<Concert> addConcert(@RequestBody ConcertWebDto concertWebDto) {
+        Concert result = concertUseCase.addConcert(concertWebDto.toDomain(), concertWebDto.artistId());
+        return ResponseEntity.ok(result);
 
     }
 }
