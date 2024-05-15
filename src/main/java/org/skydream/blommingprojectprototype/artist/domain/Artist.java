@@ -2,6 +2,7 @@ package org.skydream.blommingprojectprototype.artist.domain;
 
 import lombok.Builder;
 import lombok.Getter;
+import org.skydream.blommingprojectprototype.global.domain.AuditTime;
 
 import java.time.LocalDateTime;
 
@@ -13,17 +14,15 @@ public class Artist {
     private String description;
     private String profileImgUrl;
     private String youtubeUrl;
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
+    private AuditTime auditTime;
 
     @Builder
-    public Artist(long id, String name, String description, String profileImgUrl, String youtubeUrl, LocalDateTime createdAt, LocalDateTime modifiedAt) {
+    public Artist(long id, String name, String description, String profileImgUrl, String youtubeUrl, AuditTime auditTime) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.profileImgUrl = profileImgUrl;
         this.youtubeUrl = youtubeUrl;
-        this.createdAt = createdAt;
-        this.modifiedAt = modifiedAt;
+        this.auditTime = auditTime;
     }
 }
