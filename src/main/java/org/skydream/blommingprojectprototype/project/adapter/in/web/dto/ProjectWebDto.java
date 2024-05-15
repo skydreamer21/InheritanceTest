@@ -1,7 +1,6 @@
 package org.skydream.blommingprojectprototype.project.adapter.in.web.dto;
 
 import lombok.Builder;
-import org.skydream.blommingprojectprototype.project.adapter.out.persistence.entity.ProjectJpaEntity;
 import org.skydream.blommingprojectprototype.project.domain.Project;
 
 @Builder
@@ -12,14 +11,14 @@ public record ProjectWebDto(Long id,
                             String description,
                             String posterImgUrl) {
 
-    public static ProjectWebDto from (ProjectJpaEntity projectJpaEntity) {
+    public static ProjectWebDto from (Project project) {
         return ProjectWebDto.builder()
-                .id(projectJpaEntity.getId())
-                .name(projectJpaEntity.getName())
-                .fundingAmount(projectJpaEntity.getFundingAmount())
-                .targetAmount(projectJpaEntity.getTargetAmount())
-                .description(projectJpaEntity.getDescription())
-                .posterImgUrl(projectJpaEntity.getPosterImgUrl())
+                .id(project.getId())
+                .name(project.getName())
+                .fundingAmount(project.getFundingAmount())
+                .targetAmount(project.getTargetAmount())
+                .description(project.getDescription())
+                .posterImgUrl(project.getPosterImgUrl())
                 .build();
     }
 
